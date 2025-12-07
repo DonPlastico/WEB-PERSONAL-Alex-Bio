@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Caballero | DP-Scripts</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <canvas id="canvas-bg"></canvas>
+
+    <div id="project-bg-overlay"></div>
+
+    <div class="main-container">
+
+        <header class="profile-header">
+            <div class="header-content">
+                <img src="Images/Logo.png" alt="Alex Caballero" class="profile-pic">
+                <div class="header-text">
+                    <h1 class="glitch-text">Alex Caballero | DP-Scripts</h1>
+                    <div class="typing-container">
+                        <span id="typewriter"></span><span class="cursor">_</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="bento-grid">
+            <div class="card card-full bio-card">
+                <div class="card-content">
+                    <h3><i class="fas fa-terminal"></i> Terminal_Status: Online</h3>
+                    <p>📍 Castelldefels ➝ Zaragoza. <br>
+                        Menos social, más terminal. Transformando café en scripts de FiveM y código limpio.</p>
+                </div>
+            </div>
+
+            <div class="card card-small discord-card-horizontal">
+                <div class="discord-row">
+                    <div class="discord-icon-wrapper">
+                        <i class="fab fa-discord"></i>
+                        <div class="online-dot"></div>
+                    </div>
+                    <div class="discord-info">
+                        <span class="discord-username">alexcaballero.dev</span>
+                        <p class="discord-status">Creando chorradas...</p>
+                    </div>
+                </div>
+            </div>
+
+            <a href="https://github.com/DonPlastico" target="_blank" class="card card-wide github-card">
+                <img src="https://github-readme-streak-stats.herokuapp.com/?user=DonPlastico&theme=tokyonight&hide_border=true&background=00000000&locale=es"
+                    alt="GitHub Streak" loading="lazy">
+            </a>
+
+            <div class="card card-small stack-card">
+                <h3><i class="fas fa-code"></i> Tech Stack</h3>
+                <div class="icons-grid">
+                    <i class="devicon-html5-plain colored" data-tooltip="HTML5"></i>
+                    <i class="devicon-css3-plain colored" data-tooltip="CSS3"></i>
+                    <i class="devicon-javascript-plain colored" data-tooltip="JavaScript"></i>
+                    <i class="devicon-lua-plain-wordmark" style="color: #5E97D0;" data-tooltip="Lua"></i>
+                    <i class="devicon-git-plain colored" data-tooltip="Git"></i>
+                    <i class="devicon-java-plain colored" data-tooltip="Java"></i>
+                </div>
+                <div class="stack-separator"><span>En aprendizaje 🚀</span></div>
+                <div class="icons-grid learning-grid">
+                    <i class="devicon-vuejs-plain colored" data-tooltip="Vue.js"></i>
+                    <i class="devicon-react-original colored" data-tooltip="React"></i>
+                    <i class="devicon-tailwindcss-plain colored" data-tooltip="Tailwind CSS"></i>
+                    <i class="devicon-astro-plain colored" data-tooltip="Astro"></i>
+                    <i class="devicon-bootstrap-plain colored" data-tooltip="Bootstrap"></i>
+                    <i class="devicon-angularjs-plain colored" data-tooltip="Angular"></i>
+                </div>
+            </div>
+
+            <div class="card card-half card-vertical cinema-card">
+                <div class="vertical-header">
+                    <i class="fas fa-tv icon-title"></i>
+                    <h3>Series</h3>
+                </div>
+                <div class="scroll-list" id="series-list"></div>
+            </div>
+
+            <div class="card card-half card-vertical movie-card">
+                <div class="vertical-header">
+                    <i class="fas fa-film icon-title"></i>
+                    <h3>Cine</h3>
+                </div>
+                <div class="scroll-list" id="movies-list"></div>
+            </div>
+
+            <div class="card card-quarter flip-card social-card" data-link="https://www.youtube.com/@DP-Scripts">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front social-front yt-front">
+                        <i class="fab fa-youtube icon-big"></i>
+                        <span>YouTube</span>
+                    </div>
+                    <div class="flip-card-back social-back"></div>
+                </div>
+            </div>
+
+            <div class="card card-quarter flip-card social-card" data-link="https://instagram.com/alexcaballero.dev">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front social-front insta-front">
+                        <i class="fab fa-instagram icon-big"></i>
+                        <span>Instagram</span>
+                    </div>
+                    <div class="flip-card-back social-back"></div>
+                </div>
+            </div>
+
+            <div class="card card-quarter flip-card social-card" data-link="https://www.tiktok.com/@donmaderos">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front social-front tiktok-front">
+                        <i class="fab fa-tiktok icon-big"></i>
+                        <span>TikTok</span>
+                    </div>
+                    <div class="flip-card-back social-back"></div>
+                </div>
+            </div>
+
+            <div class="card card-quarter flip-card social-card" data-link="https://forum.cfx.re/u/donplastico">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front social-front fivem-front">
+                        <i class="fas fa-gamepad icon-big"></i>
+                        <span>FiveM Dev</span>
+                    </div>
+                    <div class="flip-card-back social-back"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-full cmd-card">
+            <div class="cmd-header">
+                <div class="cmd-icon"><i class="fas fa-terminal"></i></div>
+                <span class="cmd-title">Simbolo del sistema - alex@hack-mode</span>
+                <div class="cmd-controls">
+                    <span class="cmd-btn minimize">_</span><span class="cmd-btn maximize">▢</span><span
+                        class="cmd-btn close">X</span>
+                </div>
+            </div>
+            <div class="cmd-body">
+                <div class="cmd-content">
+                    <span class="cmd-prompt">C:\Users\alex></span>
+                    <span id="cmd-text"></span><span class="cmd-cursor">█</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="full-width-container">
+        <h2 class="section-title">PROYECTOS GITHUB</h2>
+        <div id="projects-grid" class="projects-grid">
+        </div>
+    </div>
+
+    <footer>
+        <p>Hecho por <strong>Alex Caballero</strong> con aburrimiento y demasiado tiempo libre.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
