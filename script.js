@@ -176,12 +176,14 @@ const cmdPhrases = [
    2. FUNCIONES Y LÓGICA
    ========================================================================= */
 
-// --- RENDERIZAR SERIES Y PELIS ---
+// --- RENDERIZAR SERIES Y PELIS (OPTIMIZADO CON LAZY LOADING) ---
 function renderLists() {
     const seriesContainer = document.getElementById('series-list');
     const moviesContainer = document.getElementById('movies-list');
-    seriesContainer.innerHTML = '';
-    moviesContainer.innerHTML = '';
+
+    // Usamos fragmentos para minimizar el repintado del DOM (Optimización CPU)
+    let seriesHTML = '';
+    let moviesHTML = '';
 
     entertainmentData.series.forEach(item => {
         const fallbackImage = `https://ui-avatars.com/api/?name=${encodeURIComponent(item.title)}&background=random&color=fff`;
@@ -189,9 +191,10 @@ function renderLists() {
         if (item.status === "Viendo") statusColor = "#00f3ff"; // Azul
         if (item.status === "Pausada") statusColor = "#ff4757"; // Rojo
 
-        seriesContainer.innerHTML += `
+        seriesHTML += `
             <div class="list-item">
-                <img src="${item.image}" alt="${item.title}" onerror="this.src='${fallbackImage}'">
+                <!-- AÑADIDO: loading="lazy" para ahorrar memoria -->
+                <img src="${item.image}" alt="${item.title}" onerror="this.src='${fallbackImage}'" loading="lazy">
                 <div class="item-info">
                     <h4>${item.title}</h4>
                     <span class="tag" style="color: ${statusColor}; border-color: ${statusColor}30;">${item.status}</span>
@@ -203,13 +206,14 @@ function renderLists() {
     entertainmentData.movies.forEach(item => {
         const statusClass = item.watched ? 'watched' : 'pending';
         const statusText = item.watched ? 'Vista' : 'Pendiente';
-        const statusTagColor = item.watched ? 'color: var(--accent-blue);' : 'color: #fca50f;';
+        const statusTagColor = item.watched ? 'color: var(--accent-primary);' : 'color: #fca50f;';
         const eyeIconHtml = item.watched ? '<i class="fas fa-eye status-icon" title="Vista"></i>' : '';
         const fallbackImage = `https://ui-avatars.com/api/?name=${encodeURIComponent(item.title)}&background=random&color=fff`;
 
-        moviesContainer.innerHTML += `
+        moviesHTML += `
             <div class="list-item ${statusClass}">
-                <img src="${item.image}" alt="${item.title}" onerror="this.src='${fallbackImage}'">
+                <!-- AÑADIDO: loading="lazy" para ahorrar memoria -->
+                <img src="${item.image}" alt="${item.title}" onerror="this.src='${fallbackImage}'" loading="lazy">
                 <div class="item-info">
                     <h4>${item.title}</h4>
                     <span class="tag" style="${statusTagColor}">${item.year} • ${statusText}</span>
@@ -218,51 +222,80 @@ function renderLists() {
             </div>
         `;
     });
+
+    // Inserción única al DOM
+    seriesContainer.innerHTML = seriesHTML;
+    moviesContainer.innerHTML = moviesHTML;
 }
 
-// --- RENDERIZAR PROYECTOS GITHUB (LIMPIO PARA 3D TILT) ---
+// --- RENDERIZAR PROYECTOS GITHUB (OPTIMIZADO CON LAZY LOADING) ---
 function renderProjects() {
     const container = document.getElementById('projects-grid');
-    container.innerHTML = '';
+    let projectsHTML = ''; // Buffer para el HTML
 
     githubProjects.forEach(proj => {
-        let icon = '<i class="fas fa-code"></i>';
-        if (proj.lang === 'Lua') icon = '<i class="fas fa-moon"></i>';
-        if (proj.lang === 'JavaScript') icon = '<i class="fab fa-js"></i>';
-        if (proj.lang === 'CSS') icon = '<i class="fab fa-css3-alt"></i>';
+        let iconClass = 'fas fa-code';
+        if (proj.lang === 'Lua') iconClass = 'fas fa-moon';
+        if (proj.lang === 'JavaScript') iconClass = 'fab fa-js';
+        if (proj.lang === 'CSS') iconClass = 'fab fa-css3-alt';
+        if (proj.lang === 'HTML') iconClass = 'fab fa-html5';
 
-        const localImgPath = `Images/Proyectos/${proj.name}.png`;
+        const imagePath = `Images/Proyectos/${proj.name}.png`;
 
-        // CAMBIO: Quitamos ${randomAnim}. Solo dejamos la clase base flip-card.
-        container.innerHTML += `
-            <div class="flip-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <div class="project-icon">${icon}</div>
-                        <div class="project-name">${proj.name}</div>
-                        <div class="project-lang">
-                            <span class="lang-dot" style="background:${proj.color}"></span>
-                            ${proj.lang}
-                        </div>
-                    </div>
+        projectsHTML += `
+            <div class="card project-card">
+                <div class="content project-content">
                     
-                    <div class="flip-card-back">
-                        <div class="back-title">${proj.name}</div>
-                        
-                        <img src="${localImgPath}" class="project-preview-img" onerror="this.style.display='none'">
-                        
-                        <div class="desc-container">
-                            <p class="project-desc">${proj.desc}</p>
+                    <div class="back project-face-visible">
+                        <div class="back-content project-face-inner">
                             
-                            <a href="https://github.com/DonPlastico/${proj.name}" target="_blank" class="project-link">
-                                <i class="fab fa-github"></i> Ver Código
-                            </a>
+                            <!-- AÑADIDO: loading="lazy" CRUCIAL para las imágenes de proyecto -->
+                            <img src="${imagePath}" 
+                                 class="project-cover-img" 
+                                 alt="${proj.name}"
+                                 loading="lazy"
+                                 onerror="this.style.display='none'; this.nextElementSibling.querySelector('.project-icon-big').style.display='block'">
+
+                            <div class="project-info-text">
+                                <i class="${iconClass} project-icon-big" style="display: none; font-size: 3rem; margin-bottom: 10px;"></i>
+                                <strong class="project-name-main">${proj.name}</strong>
+                            </div>
                         </div>
                     </div>
+
+                    <div class="front project-face-hidden">
+                        <div class="img project-bg-img">
+                            <div class="circle"></div>
+                            <div class="circle" id="right"></div>
+                            <div class="circle" id="bottom"></div>
+                        </div>
+
+                        <div class="front-content project-content-hover">
+                            <small class="badge" style="color: ${proj.color}; border-color: ${proj.color}">${proj.lang}</small>
+                            
+                            <div class="description">
+                                <div class="title desc-title">
+                                    <p class="title">
+                                        <strong>Detalles</strong>
+                                    </p>
+                                    <a href="https://github.com/DonPlastico/${proj.name}" target="_blank" class="repo-link">
+                                       <i class="fab fa-github fa-lg"></i>
+                                    </a>
+                                </div>
+                                <p class="card-footer">
+                                    ${proj.desc}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         `;
     });
+
+    // Inserción única al DOM
+    container.innerHTML = projectsHTML;
 }
 
 // --- TYPEWRITER EFFECT ---
@@ -324,20 +357,59 @@ function typeCmd() {
     setTimeout(typeCmd, cmdSpeed);
 }
 
-// --- BACKGROUND PARTICLES ---
+// --- BACKGROUND PARTICLES (OPTIMIZADO CON PAUSA) ---
 const canvas = document.getElementById('canvas-bg');
 const ctx = canvas.getContext('2d');
 let particlesArray;
+let animationId; // Para controlar el bucle
+let isAnimating = false; // Estado de la animación
+
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; init(); });
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    init();
+});
+
 class Particle {
     constructor() { this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height; this.size = Math.random() * 2 + 0.5; this.speedX = (Math.random() * 1) - 0.5; this.speedY = (Math.random() * 1) - 0.5; }
     update() { this.x += this.speedX; this.y += this.speedY; if (this.x > canvas.width || this.x < 0) this.speedX = -this.speedX; if (this.y > canvas.height || this.y < 0) this.speedY = -this.speedY; }
     draw() { ctx.fillStyle = '#00f3ff'; ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill(); }
 }
-function init() { particlesArray = []; let numberOfParticles = (canvas.height * canvas.width) / 9000; for (let i = 0; i < numberOfParticles; i++) particlesArray.push(new Particle()); }
-function animate() { ctx.clearRect(0, 0, canvas.width, canvas.height); for (let i = 0; i < particlesArray.length; i++) { particlesArray[i].update(); particlesArray[i].draw(); connect(i); } requestAnimationFrame(animate); }
+
+function init() {
+    particlesArray = [];
+    // OPTIMIZACIÓN: Aumentamos el divisor de 9000 a 14000 (Menos partículas = Mejor rendimiento)
+    let numberOfParticles = (canvas.height * canvas.width) / 14000;
+    for (let i = 0; i < numberOfParticles; i++) particlesArray.push(new Particle());
+}
+
+// Funciones de control de animación
+function startAnimation() {
+    if (!isAnimating) {
+        isAnimating = true;
+        animate();
+    }
+}
+
+function stopAnimation() {
+    isAnimating = false;
+    cancelAnimationFrame(animationId);
+}
+
+function animate() {
+    if (!isAnimating) return; // Si está pausado, no hacemos nada
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let i = 0; i < particlesArray.length; i++) {
+        particlesArray[i].update();
+        particlesArray[i].draw();
+        connect(i);
+    }
+    animationId = requestAnimationFrame(animate);
+}
+
 function connect(a) {
     for (let b = a; b < particlesArray.length; b++) {
         let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
@@ -356,33 +428,46 @@ document.addEventListener('DOMContentLoaded', () => {
     renderProjects();
     typeCmd();
     init();
-    animate();
+    startAnimation(); // Iniciamos animación por defecto
     initScrollObserver();
-    init3DTilt();
+
+    // Configurar enlaces simples para Social Cards (ya sin Tilt 3D)
+    const socialCards = document.querySelectorAll('.social-card');
+    socialCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const link = card.getAttribute('data-link');
+            if (link) window.open(link, '_blank');
+        });
+    });
 });
 
 // =========================================================================
-// 4. OBSERVADOR DE SCROLL (CAMBIO DE FONDO)
+// 4. OBSERVADOR DE SCROLL (OPTIMIZACIÓN DE RECURSOS)
 // =========================================================================
 function initScrollObserver() {
     const targetSection = document.querySelector('.full-width-container');
     const bgOverlay = document.getElementById('project-bg-overlay');
 
-    // Configuración del vigilante
     const options = {
-        root: null, // El viewport
-        threshold: 0.1, // Se activa cuando el 10% de la sección es visible
-        rootMargin: "-100px 0px 0px 0px" // Un pequeño margen para que no cambie instantáneamente
+        root: null,
+        threshold: 0.1,
+        rootMargin: "-100px 0px 0px 0px"
     };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Si la sección de proyectos entra en pantalla:
+                // ESTAMOS EN LA SECCIÓN DE PROYECTOS (Fondo oscuro visible)
                 bgOverlay.classList.add('active');
+
+                // OPTIMIZACIÓN: Pausamos las partículas porque no se ven
+                stopAnimation();
             } else {
-                // Si salimos de la sección:
+                // ESTAMOS ARRIBA (Fondo transparente)
                 bgOverlay.classList.remove('active');
+
+                // Reactivamos partículas
+                startAnimation();
             }
         });
     }, options);
@@ -390,76 +475,4 @@ function initScrollObserver() {
     if (targetSection) {
         observer.observe(targetSection);
     }
-}
-
-// =========================================================================
-// 5. EFECTO 3D TILT + SONIDO LOCAL (ACTUALIZADO PARA SOCIAL)
-// =========================================================================
-function init3DTilt() {
-    const cards = document.querySelectorAll('.flip-card');
-    const hoverSfx = new Audio("audio/hover.mp3");
-    hoverSfx.volume = 0.01;
-
-    cards.forEach(card => {
-        const inner = card.querySelector('.flip-card-inner');
-
-        // DETECTAR SI ES UNA TARJETA SOCIAL (Para no girarla 180 grados)
-        const isSocial = card.classList.contains('social-card');
-
-        // CLIC EN SOCIAL CARDS (Redirección)
-        if (isSocial) {
-            card.addEventListener('click', () => {
-                const link = card.getAttribute('data-link');
-                if (link) window.open(link, '_blank');
-            });
-        }
-
-        // MOVER RATÓN
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-
-            const rotateX = ((y - centerY) / centerY) * -15; // Un poco más de ángulo
-            const rotateY = ((x - centerX) / centerX) * 15;
-
-            // LÓGICA DIFERENTE: 
-            // Si es Social -> Solo inclinación (rotateX/Y)
-            // Si es Proyecto -> Inclinación + Vuelta (rotateY 180)
-            let transformStyle = '';
-            if (isSocial) {
-                transformStyle = `perspective(1000px) rotateY(${rotateY}deg) rotateX(${rotateX}deg) scale(1.05)`; // Scale para que destaque
-            } else {
-                transformStyle = `perspective(1000px) rotateY(${180 + rotateY}deg) rotateX(${rotateX}deg)`;
-            }
-
-            inner.style.transform = transformStyle;
-
-            // Sombra dinámica según el color de la tarjeta
-            if (isSocial) {
-                // Sombra suave para social
-                inner.style.boxShadow = `${-rotateY}px ${rotateX}px 20px rgba(0,0,0,0.5)`;
-            } else {
-                // Sombra neón para proyectos
-                inner.style.boxShadow = `${-rotateY}px ${rotateX}px 30px rgba(0, 243, 255, 0.2)`;
-            }
-        });
-
-        // ENTRAR
-        card.addEventListener('mouseenter', () => {
-            inner.style.transition = 'transform 0.1s ease-out';
-            hoverSfx.currentTime = 0;
-            const playPromise = hoverSfx.play();
-            if (playPromise !== undefined) { playPromise.catch(() => { }); }
-        });
-
-        // SALIR
-        card.addEventListener('mouseleave', () => {
-            inner.style.transition = 'transform 0.5s ease-in-out';
-            inner.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg)';
-            inner.style.boxShadow = 'none'; // Quitar sombra extra
-        });
-    });
 }

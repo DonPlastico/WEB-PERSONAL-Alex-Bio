@@ -59,39 +59,30 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-
-    /* CAMBIO: De gris plano a un degradado 'Abismo Cyberpunk' */
     background: radial-gradient(circle at 50% 50%, #1a1025 0%, #000000 90%);
-
     opacity: 0;
     transition: opacity 0.8s ease-in-out;
     z-index: -1;
     pointer-events: none;
 }
 
-/* Clase que activa el fondo (se añade con JS) */
 #project-bg-overlay.active {
     opacity: 1;
-    /* Se vuelve visible y tapa las partículas */
 }
 
 /* =========================================
    2. CONTENEDORES (LAYOUT)
    ========================================= */
-/* Contenedor estándar (Perfil, Bento, CMD) */
 .main-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px 20px;
 }
 
-/* Contenedor Expandido (Proyectos) - 90% del ancho total */
 .full-width-container {
     width: 90%;
     max-width: 1800px;
-    /* Límite para pantallas gigantes */
     margin: 60px auto;
-    /* Separación vertical */
 }
 
 /* =========================================
@@ -117,39 +108,30 @@ body {
     height: 80px;
     border-radius: 15px;
     object-fit: cover;
-    border: 2px solid var(--accent-blue);
+    border: 2px solid var(--accent-primary);
     box-shadow: 0 0 15px var(--accent-glow);
 }
 
 .glitch-text {
     font-size: 2.5rem;
-    /* Mucho más grande e imponente */
     font-weight: 900;
     margin-bottom: 5px;
     letter-spacing: -1px;
-
-    /* EL DEGRADADO MÁGICO */
     background: linear-gradient(to right,
             var(--accent-primary),
             #ffffff,
             var(--accent-secondary),
             var(--accent-primary));
     background-size: 200% auto;
-
-    /* Recortar el fondo a la forma del texto */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-
-    /* Animación suave del color moviéndose */
     animation: shine 5s linear infinite;
-
-    /* Un pequeño brillo alrededor */
     filter: drop-shadow(0 0 10px rgba(0, 243, 255, 0.3));
 }
 
 .typing-container {
     font-family: var(--font-code);
-    color: var(--accent-blue);
+    color: var(--accent-primary);
     font-size: 0.85rem;
 }
 
@@ -163,17 +145,13 @@ body {
     gap: 15px;
 }
 
-/* TARJETA BASE */
 .card {
     background: var(--card-bg);
-    /* Borde muy sutil */
     border: 1px solid var(--card-border);
     border-radius: 24px;
-    /* Un poco más redondeado */
     padding: 20px;
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     backdrop-filter: blur(20px);
-    /* Más borroso el fondo */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -185,12 +163,9 @@ body {
 
 .card:hover {
     transform: translateY(-5px) scale(1.01);
-    /* Borde brillante con el color secundario */
     border-color: var(--accent-secondary);
-    /* Resplandor violeta/azul */
 }
 
-/* TAMAÑOS */
 .card-full {
     grid-column: span 12;
 }
@@ -199,22 +174,18 @@ body {
     grid-column: span 6;
 }
 
-/* 50% */
 .card-half {
     grid-column: span 6;
 }
 
-/* 50% */
 .card-third {
     grid-column: span 4;
 }
 
-/* 33% */
 .card-small {
     grid-column: span 3;
 }
 
-/* 25% */
 .card-quarter {
     grid-column: span 3;
     align-items: center;
@@ -227,12 +198,10 @@ body {
     padding: 25px;
 }
 
-/* --- SOCIAL CARDS 3D (Compactas y Horizontales) --- */
+/* --- SOCIAL CARDS --- */
 .social-card {
     height: 90px;
-    /* Altura fija mucho más pequeña (antes se estiraba) */
     min-height: 0;
-    /* Reseteamos min-height */
     cursor: pointer;
     perspective: 1000px;
     padding: 0 !important;
@@ -240,31 +209,24 @@ body {
     background: transparent !important;
 }
 
-/* La cara delantera (lo que se ve) */
 .social-front {
     width: 100%;
     height: 100%;
     background: var(--card-bg);
     border: 1px solid var(--card-border);
     border-radius: 15px;
-    /* Bordes menos redondeados para que pegue con el tamaño */
     display: flex;
     flex-direction: row;
-    /* <--- CAMBIO CLAVE: Horizontal */
     align-items: center;
     justify-content: center;
     gap: 15px;
-    /* Separación entre icono y texto */
     backdrop-filter: blur(20px);
     transition: 0.3s;
 }
 
-/* Ajustamos el icono para que no sea tan gigante en este formato */
 .social-front i {
     font-size: 1.8rem;
-    /* Un poco más pequeño */
     margin-bottom: 0;
-    /* Quitamos el margen de abajo */
     transition: 0.3s;
 }
 
@@ -274,7 +236,6 @@ body {
     letter-spacing: 0.5px;
 }
 
-/* Colores específicos Hover (Se mantienen igual de chulos) */
 .yt-front:hover {
     border-color: #ff0000;
     box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
@@ -315,7 +276,6 @@ body {
     transform: scale(1.1) rotate(5deg);
 }
 
-/* Ocultamos la trasera */
 .social-back {
     display: none;
 }
@@ -323,7 +283,6 @@ body {
 /* =========================================
    5. ESTILOS DE TARJETAS ESPECÍFICAS
    ========================================= */
-/* Bio */
 .bio-card h3 {
     color: var(--text-muted);
     font-size: 0.8rem;
@@ -336,19 +295,13 @@ body {
     line-height: 1.5;
 }
 
-/* --- NUEVO: ANULAR HOVER SOLO PARA ESTA TARJETA --- */
 .bio-card:hover {
     transform: none !important;
-    /* No se mueve */
     border-color: var(--card-border) !important;
-    /* Mantiene el borde original gris */
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
-    /* Mantiene la sombra base, sin brillo */
     cursor: default;
-    /* El cursor se queda como flecha normal */
 }
 
-/* Discord */
 .discord-card-horizontal {
     background: #5865F2 !important;
     border: none !important;
@@ -394,7 +347,6 @@ body {
     margin-top: 2px;
 }
 
-/* GitHub Streak */
 .github-card {
     padding: 0;
     background: #0d1117;
@@ -407,7 +359,6 @@ body {
     object-fit: contain;
 }
 
-/* Tech Stack */
 .stack-card {
     padding: 15px;
     justify-content: flex-start;
@@ -437,10 +388,8 @@ body {
 
 .icons-grid i::after {
     content: attr(data-tooltip);
-    /* Coge el texto del atributo HTML */
     position: absolute;
     bottom: 125%;
-    /* Se sitúa encima del icono */
     left: 50%;
     transform: translateX(-50%) translateY(10px);
     background: rgba(10, 10, 10, 0.95);
@@ -448,21 +397,17 @@ body {
     padding: 5px 10px;
     font-size: 0.7rem;
     font-family: var(--font-code);
-    /* Fuente tipo código */
     border-radius: 6px;
     white-space: nowrap;
     opacity: 0;
     visibility: hidden;
     transition: all 0.2s ease;
     pointer-events: none;
-    /* Para que no moleste al ratón */
-    border: 1px solid var(--accent-blue);
-    /* Borde neón */
+    border: 1px solid var(--accent-primary);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     z-index: 100;
 }
 
-/* Animación al pasar el ratón: Aparece y sube un poquito */
 .icons-grid i:hover::after,
 .icons-grid i:hover::before {
     opacity: 1;
@@ -498,7 +443,6 @@ body {
     opacity: 1;
 }
 
-/* Series & Pelis */
 .cinema-card {
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(44, 62, 80, 0.4) 100%);
 }
@@ -518,7 +462,7 @@ body {
 
 .icon-title {
     font-size: 1.2rem;
-    color: var(--accent-blue);
+    color: var(--accent-primary);
 }
 
 .vertical-header h3 {
@@ -541,7 +485,6 @@ body {
     border-radius: 4px;
 }
 
-/* List Items (Series/Movies) */
 .list-item {
     display: flex;
     align-items: center;
@@ -580,19 +523,19 @@ body {
     border-radius: 4px;
     margin-top: 4px;
     background: rgba(0, 243, 255, 0.1);
-    color: var(--accent-blue);
+    color: var(--accent-primary);
 }
 
 .status-icon {
     margin-left: auto;
-    color: var(--accent-blue);
+    color: var(--accent-primary);
     font-size: 0.9rem;
     opacity: 0.8;
     padding-left: 10px;
 }
 
 .list-item.watched {
-    border-left: 2px solid var(--accent-blue);
+    border-left: 2px solid var(--accent-primary);
     background: linear-gradient(90deg, rgba(0, 243, 255, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%);
 }
 
@@ -601,7 +544,6 @@ body {
     opacity: 0.8;
 }
 
-/* Social Icons */
 .icon-big {
     font-size: 2.2rem;
     margin-bottom: 10px;
@@ -705,17 +647,16 @@ body {
 }
 
 /* =========================================
-   7. PROYECTOS (FLIP CARDS) - REDISEÑO
+   7. PROYECTOS GITHUB (DISEÑO LIMPIO - BORDE NEÓN)
    ========================================= */
+
 .section-title {
     text-align: center;
     font-size: 2rem;
-    /* Más grande */
     font-weight: 900;
     margin-bottom: 40px;
     letter-spacing: 4px;
     text-transform: uppercase;
-    /* Degradado metálico/neon */
     background: linear-gradient(135deg, #fff 0%, var(--accent-primary) 50%, var(--accent-secondary) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -724,200 +665,271 @@ body {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 25px;
-    /* Un poco más de separación */
+    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+    gap: 30px;
+    padding: 20px;
 }
 
-/* TARJETA MÁS ALTA ("GORDITA") */
-.flip-card {
-    background-color: transparent;
-    height: 360px;
-    /* <--- AUMENTADO (Antes 180px) */
+.project-card {
+    overflow: visible;
+    width: 100%;
+    height: 300px;
     perspective: 1000px;
-    cursor: pointer;
 }
 
-.flip-card-inner {
-    position: relative;
+.project-content {
     width: 100%;
     height: 100%;
-    text-align: center;
-    transition: transform 0.5s ease-out;
     transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.5);
     border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-.flip-card.hover-active .flip-card-inner {
-    /* Esta regla se usará como base, pero el JS la sobrescribirá con coordenadas exactas */
-    box-shadow: 0 0 30px var(--accent-glow);
+.project-card:hover .project-content {
+    transform: rotateY(180deg);
 }
 
-.flip-card-front,
-.flip-card-back {
+/* --- CARA VISIBLE (CON EL BORDE GIRATORIO) --- */
+.project-face-visible {
     position: absolute;
     width: 100%;
     height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+    background-color: #0c0c0c;
     border-radius: 15px;
+    overflow: hidden;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+/* El "Brillo" Giratorio (Fondo) */
+/* MODIFICADO: Aumentado al 300% y centrado para cubrir las esquinas en tarjetas anchas */
+.project-face-visible::before {
+    position: absolute;
+    content: ' ';
+    display: block;
+    width: 300%;
+    /* Aumentado de 160px a 300% */
+    height: 300%;
+    /* Aumentado de 160% a 300% */
+    left: -100%;
+    /* Centrado */
+    top: -100%;
+    /* Centrado */
+    background: linear-gradient(90deg, transparent, var(--accent-primary), var(--accent-secondary), var(--accent-primary), transparent);
+    animation: rotation_481 4000ms infinite linear;
+    z-index: 0;
+}
+
+/* Contenedor INTERNO (Máscara) */
+/* MODIFICADO: Usamos INSET en lugar de width/height % para un borde uniforme */
+.project-face-inner {
+    position: absolute;
+    inset: 1px;
+    width: auto;
+    height: auto;
+    background-color: #0c0c0c;
+    border-radius: 15px;
+    z-index: 1;
+    overflow: hidden;
+
     display: flex;
     flex-direction: column;
-    align-items: center;
-    border: 1px solid var(--card-border);
-}
-
-.flip-card-front {
-    /* Fondo oscuro pero transparente (Glassmorphism) */
-    background: rgba(10, 10, 12, 0.6);
-    backdrop-filter: blur(15px);
-
-    /* Borde sutil cyan/azul */
-    border: 1px solid rgba(0, 243, 255, 0.15);
-
-    /* Sombra interna para dar volumen */
-    box-shadow: inset 0 0 20px rgba(0, 243, 255, 0.05);
-
     justify-content: center;
-}
-
-/* Efecto al pasar el ratón por encima (antes de girar) */
-.flip-card:hover .flip-card-front {
-    border-color: var(--accent-primary);
-    box-shadow: 0 0 15px var(--accent-glow), inset 0 0 20px rgba(0, 243, 255, 0.1);
-}
-
-.project-icon {
-    font-size: 3rem;
-    color: var(--accent-primary);
-    margin-bottom: 15px;
-    /* Resplandor en el icono */
-    filter: drop-shadow(0 0 5px rgba(0, 243, 255, 0.5));
-    transition: 0.3s;
-}
-
-.project-name {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: white;
-    letter-spacing: 1px;
-    /* Sombra en el texto para legibilidad */
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-}
-
-.project-lang {
-    font-size: 0.8rem;
-    margin-top: 10px;
-    opacity: 0.7;
-    display: flex;
     align-items: center;
-    gap: 5px;
 }
 
-.lang-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    box-shadow: 0 0 5px currentColor;
-    /* El punto brilla con su propio color */
-}
-
-/* --- ATRÁS (Detallado en 3 Secciones) --- */
-.flip-card-back {
-    /* Degradado vertical oscuro */
-    background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
-
-    /* Borde brillante */
-    border: 1px solid var(--accent-secondary);
-
-    color: white;
-    transform: rotateY(180deg);
-    padding: 15px;
-    justify-content: flex-start;
-    gap: 10px;
-
-    /* Sombra exterior fuerte para que destaque sobre el fondo */
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
-}
-
-/* SECCIÓN 1: TÍTULO */
-.back-title {
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 5px;
-    flex: 0 0 auto;
-    /* No estirar */
-}
-
-/* SECCIÓN 2: IMAGEN (GRANDE) */
-.project-preview-img {
+/* La Imagen ahora va DENTRO del contenedor interno */
+.project-cover-img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 160px;
-    /* <--- MUCHO MÁS GRANDE */
+    height: 100%;
     object-fit: cover;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    background: #000;
-    flex: 0 0 auto;
-    /* Tamaño fijo */
+    opacity: 0.5;
+    /* Transparencia normal */
+    z-index: 0;
+    /* Detrás del texto */
+    transition: opacity 0.3s ease;
 }
 
-/* SECCIÓN 3: DESCRIPCIÓN + BOTÓN */
-.desc-container {
-    flex-grow: 1;
+.project-card:hover .project-cover-img {
+    opacity: 0.8;
+}
+
+/* Texto encima de la imagen */
+.project-info-text {
+    position: relative;
+    bottom: 117px;
+    z-index: 2;
+    /* Encima de la imagen */
+    text-align: center;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 1);
+    /* Sombra fuerte para leerse bien */
+}
+
+/* --- CARA OCULTA (HOVER) --- */
+.project-face-hidden {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #151515;
+    border-radius: 15px;
+    overflow: hidden;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: rotateY(180deg);
+    color: white;
+}
+
+.project-bg-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.circle {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-color: var(--accent-primary);
+    position: relative;
+    filter: blur(25px);
+    opacity: 0.6;
+    animation: floating 2600ms infinite linear;
+}
+
+#bottom {
+    background-color: var(--accent-secondary);
+    left: 50px;
+    top: 0px;
+    width: 150px;
+    height: 150px;
+    animation-delay: -800ms;
+}
+
+#right {
+    background-color: #ffffff;
+    left: 160px;
+    top: -80px;
+    width: 30px;
+    height: 30px;
+    animation-delay: -1800ms;
+}
+
+.project-content-hover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 100%;
-    overflow: hidden;
+    z-index: 2;
 }
 
-.project-desc {
-    font-size: 1rem;
-    color: white;
-    line-height: 1.4;
-    text-align: left;
-    margin-bottom: 10px;
-    overflow-y: auto;
-    max-height: 80px;
-    padding-right: 5px;
-}
-
-/* Scrollbar fina para la descripción */
-.project-desc::-webkit-scrollbar {
-    width: 3px;
-}
-
-.project-desc::-webkit-scrollbar-thumb {
-    background: var(--accent-blue);
-    border-radius: 3px;
-}
-
-.project-link {
+.badge {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 4px 12px;
+    border-radius: 10px;
+    backdrop-filter: blur(2px);
     font-size: 0.8rem;
-    color: white;
-    /* Botón con degradado */
-    background: linear-gradient(90deg, var(--accent-secondary), var(--accent-primary));
-    padding: 8px 0;
-    width: 100%;
-    text-align: center;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    display: block;
-    transition: 0.3s;
-    border: none;
+    width: fit-content;
+    border: 1px solid var(--card-border);
 }
 
-.project-link:hover {
-    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
-    box-shadow: 0 0 20px var(--accent-glow);
+.description {
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    border: 1px solid var(--card-border);
+}
+
+.desc-title {
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.card-footer {
+    color: #cccccc;
+    margin-top: 8px;
+    font-size: 0.85rem;
+}
+
+/* Estilos extra */
+.project-icon-big {
+    font-size: 4rem;
+    color: var(--accent-primary);
+    filter: drop-shadow(0 0 10px rgba(0, 243, 255, 0.5));
+}
+
+.project-name-main {
+    font-size: 1.2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.repo-link {
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+
+.repo-link:hover {
+    color: var(--accent-primary);
+}
+
+@keyframes rotation_481 {
+    0% {
+        transform: rotateZ(0deg);
+    }
+
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 /* =========================================
-   8. FOOTER & ANIMACIONES
+   ESTILOS NUEVA SECCIÓN WEBS
+   ========================================= */
+.web-projects-container {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+/* =========================================
+   8. FOOTER & ANIMACIONES GENERALES
    ========================================= */
 footer {
     text-align: center;
@@ -949,13 +961,13 @@ footer {
    ========================================= */
 @media (max-width: 1200px) {
     .projects-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
 @media (max-width: 900px) {
     .projects-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -994,16 +1006,10 @@ footer {
     }
 
     .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1, 1fr);
     }
 
     .glitch-text {
         font-size: 1.8rem;
-    }
-}
-
-@media (max-width: 600px) {
-    .projects-grid {
-        grid-template-columns: repeat(1, 1fr);
     }
 }
