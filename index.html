@@ -2,8 +2,17 @@
 <html lang="es">
 
 <head>
+    <meta locale="es_ES">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Alex Caballero | DP-Scripts">
+    <meta name="description" content="Menos social, más terminal. Portafolio de desarrollo FiveM y Web.">
+    <meta property="og:title" content="Alex Caballero | DP-Scripts">
+    <meta property="og:description" content="Menos social, más terminal. Portafolio de desarrollo FiveM y Web.">
+    <meta property="og:image" content="Images/Logo.png">
+    <meta name="theme-color" content="#00f3ff">
+
+
     <title>Alex Caballero | DP-Scripts</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap"
@@ -36,20 +45,49 @@
             <div class="card card-full bio-card">
                 <div class="card-content">
                     <h3><i class="fas fa-terminal"></i> Terminal_Status: Online</h3>
-                    <p>📍 Castelldefels ➝ Zaragoza. <br>
-                        Menos social, más terminal. Transformando café en scripts de FiveM y código limpio.</p>
+                    <p>👨🏻‍💻 Estudiante DAW | Web Dev. <br> 🎬 Cine, series y soledad.
+                        <br> 🎮 Mods, scripts y webs. <br> 📍 Castelldefels (Bcn) ➝ Zaragoza. <br>
+                    </p>
+                    <p style="color: grey; margin-top: 15px">Menos social, más terminal. Transformando café en scripts
+                        de FiveM y código limpio.</p>
                 </div>
             </div>
 
-            <div class="card card-small discord-card-horizontal">
-                <div class="discord-row">
-                    <div class="discord-icon-wrapper">
-                        <i class="fab fa-discord"></i>
-                        <div class="online-dot"></div>
+            <div class="card card-small discord-widget-container">
+
+                <div class="discord-widget-header"
+                    style="background-image: url('https://assets-global.website-files.com/6257adef93867e56f84d3092/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png'); background-size: cover;">
+                    <div class="discord-bg-overlay"></div>
+                    <a href="https://discord.gg/My2bfnA7Ny" target="_blank" class="widget-link"></a>
+                </div>
+                <button class="button_discord" onclick="window.open('https://discord.gg/My2bfnA7Ny', '_blank')">
+                    <span class="shadow"></span>
+                    <span class="edge"></span>
+                    <div class="front">
+                        <span>ENTRA CONMIGO</span>
                     </div>
-                    <div class="discord-info">
-                        <span class="discord-username">alexcaballero.dev</span>
-                        <p class="discord-status">Creando chorradas...</p>
+                </button>
+
+                <div class="discord-widget-icon">
+                    <img src="https://dxpfrontendprod.z6.web.core.windows.net/390472da-1f92-f011-b4cc-6045bd8ecf60/eciu_image_280x280.png"
+                        alt="Server Logo"
+                        onerror="this.src='https://assets-global.website-files.com/6257adef93867e56f84d3092/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png'">
+                    <div class="discord-voice-badge"><i class="fas fa-volume-up"></i></div>
+                </div>
+
+                <div class="discord-widget-bottom">
+                    <div class="discord-info-left">
+                        <h4 class="discord-server-title">El salón de los juegos
+                            <svg class="boost-icon" width="16" height="16" viewBox="0 0 24 24">
+                                <path fill="currentColor"
+                                    d="M19.07 4.93C17.22 3 14.66 1.96 12 2c-2.66-.04-5.21 1-7.06 2.93C3 6.78 1.96 9.34 2 12c-.04 2.66 1 5.21 2.93 7.06C6.78 21 9.34 22.04 12 22c2.66.04 5.21-1 7.06-2.93C21 17.22 22.04 14.66 22 12c.04-2.66-1-5.22-2.93-7.07M17 12v6h-3.5v-5h-3v5H7v-6H5l7-7l7.5 7z" />
+                            </svg>
+                        </h4>
+                        <div class="discord-status-text">
+                            <span class="status-dot-online"></span>
+                            <span id="discord-count-text">Cargando...</span>
+                        </div>
+                        <span class="discord-server-subtitle">Est. may 2020</span>
                     </div>
                 </div>
             </div>
@@ -80,61 +118,48 @@
                 </div>
             </div>
 
-            <div class="card card-half card-vertical cinema-card">
-                <div class="vertical-header">
-                    <i class="fas fa-tv icon-title"></i>
-                    <h3>Series</h3>
-                </div>
-                <div class="scroll-list" id="series-list"></div>
-            </div>
+            <!-- BOTONES HOLOGRÁFICOS REDES (CORREGIDO: Click solo en el icono) -->
 
-            <div class="card card-half card-vertical movie-card">
-                <div class="vertical-header">
-                    <i class="fas fa-film icon-title"></i>
-                    <h3>Cine</h3>
-                </div>
-                <div class="scroll-list" id="movies-list"></div>
-            </div>
-
-            <div class="card card-quarter flip-card social-card" data-link="https://www.youtube.com/@DP-Scripts">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front social-front yt-front">
-                        <i class="fab fa-youtube icon-big"></i>
-                        <span>YouTube</span>
-                    </div>
-                    <div class="flip-card-back social-back"></div>
+            <!-- YouTube -->
+            <div class="card-quarter social-wrapper">
+                <div class="holographic-icon youtube social-card" data-link="https://www.youtube.com/@DP-Scripts">
+                    <div class="holographic-ring"></div>
+                    <div class="holographic-particles"></div>
+                    <i class="fab fa-youtube"></i>
+                    <div class="holographic-pulse"></div>
                 </div>
             </div>
 
-            <div class="card card-quarter flip-card social-card" data-link="https://instagram.com/alexcaballero.dev">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front social-front insta-front">
-                        <i class="fab fa-instagram icon-big"></i>
-                        <span>Instagram</span>
-                    </div>
-                    <div class="flip-card-back social-back"></div>
+            <!-- Instagram -->
+            <div class="card-quarter social-wrapper">
+                <div class="holographic-icon instagram social-card" data-link="https://instagram.com/alexcaballero.dev">
+                    <div class="holographic-ring"></div>
+                    <div class="holographic-particles"></div>
+                    <i class="fab fa-instagram"></i>
+                    <div class="holographic-pulse"></div>
                 </div>
             </div>
 
-            <div class="card card-quarter flip-card social-card" data-link="https://www.tiktok.com/@donmaderos">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front social-front tiktok-front">
-                        <i class="fab fa-tiktok icon-big"></i>
-                        <span>TikTok</span>
-                    </div>
-                    <div class="flip-card-back social-back"></div>
+            <!-- TikTok -->
+            <div class="card-quarter social-wrapper">
+                <div class="holographic-icon tiktok social-card" data-link="https://www.tiktok.com/@donmaderos">
+                    <div class="holographic-ring"></div>
+                    <div class="holographic-particles"></div>
+                    <i class="fab fa-tiktok"></i>
+                    <div class="holographic-pulse"></div>
                 </div>
             </div>
 
-            <div class="card card-quarter flip-card social-card" data-link="https://forum.cfx.re/u/donplastico">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front social-front fivem-front">
-                        <i class="fas fa-gamepad icon-big"></i>
-                        <span>FiveM Dev</span>
-                    </div>
-                    <div class="flip-card-back social-back"></div>
+            <!-- FiveM Dev -->
+            <div class="card-quarter social-wrapper">
+                <div class="holographic-icon fivem social-card" data-link="https://forum.cfx.re/u/donplastico">
+                    <div class="holographic-ring"></div>
+                    <div class="holographic-particles"></div>
+                    <i class="fas fa-gamepad"></i>
+                    <div class="holographic-pulse"></div>
                 </div>
             </div>
+
         </div>
 
         <div class="card card-full cmd-card">
@@ -155,15 +180,56 @@
         </div>
 
     </div>
-    <div class="full-width-container">
-        <h2 class="section-title">PROYECTOS GITHUB</h2>
-        <div id="projects-grid" class="projects-grid">
-        </div>
-    </div>
 
     </div>
     <div class="web-projects-container">
         <h2 class="section-title">PROYECTOS WEBS</h2>
+
+        <div class="web-showcase">
+            <div class="web-preview">
+                <h3 class="column-header">VISTA PREVIA</h3>
+
+                <div class="preview-frame">
+                    <img id="web-preview-img" src="" alt="Vista Previa">
+                    <div class="preview-overlay">
+                        <div class="preview-info">
+                            <h3 id="web-preview-title">Selecciona un proyecto</h3>
+                            <p id="web-preview-desc">Descripción del proyecto...</p>
+                        </div>
+                        <a id="web-preview-link" href="#" target="_blank" class="preview-btn">
+                            VISITAR <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="web-list-container">
+                <h3 class="column-header">LISTA DE PROYECTOS WEBS</h3>
+
+                <ul class="web-list" id="web-list-main">
+                </ul>
+                <div class="view-more-container">
+                    <button id="btn-view-more" class="view-more-btn">VER MÁS <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="side-menu" class="side-menu">
+        <div class="side-menu-header">
+            <h3>TODOS LOS PROYECTOS</h3>
+            <button id="btn-close-menu" class="close-menu-btn"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="side-menu-content">
+            <ul class="web-list" id="web-list-full">
+            </ul>
+        </div>
+    </div>
+
+    <div class="full-width-container">
+        <h2 class="section-title">PROYECTOS GITHUB</h2>
+        <div id="projects-grid" class="projects-grid">
+        </div>
     </div>
 
     <footer>

@@ -1,106 +1,26 @@
 /* =========================================================================
-   1. DATOS (EDITAR AQUÍ)
+   1. DATOS
    ========================================================================= */
 
-// --- DATOS: SERIES & PELÍCULAS ---
-const entertainmentData = {
-    series: [
-        { title: "Stranger Things", status: "Viendo", image: "https://image.tmdb.org/t/p/w300/49WJfeN0moxb9IPfGn8AIqMGskD.jpg" },
-        { title: "El Mentalista", status: "Viendo", image: "https://image.tmdb.org/t/p/w300/acYvRjWkVA09F0l7g10P7n2hG5j.jpg" },
-        { title: "Chicago Fire", status: "Viendo", image: "https://image.tmdb.org/t/p/w300/iiI1ju8xwV6O8rW12O8Fj2C49Jp.jpg" },
-        { title: "Mentes Criminales", status: "Pausada", image: "https://image.tmdb.org/t/p/w300/7TCwgX7oQKxcWyeh9VbejfCNs86.jpg" },
-        { title: "Futurama", status: "Pausada", image: "https://image.tmdb.org/t/p/w300/k5e8F5S17m3c4562kM182g26Zf.jpg" },
-        { title: "Sweet Home", status: "Pausada", image: "https://image.tmdb.org/t/p/w300/u8Y7525j93N83akM7fK1W5B5YmO.jpg" },
-        { title: "Arcane", status: "Pendiente", image: "https://image.tmdb.org/t/p/w300/fqldf2t8ztc9aiwn3k6mlX3tvRT.jpg" },
-        { title: "La que se avecina", status: "Pendiente", image: "https://image.tmdb.org/t/p/w300/1p7r6tOq5L5F4q6u2w3x4z5y6.jpg" },
-        { title: "Asalto al Banco Central", status: "Pendiente", image: "https://image.tmdb.org/t/p/w300/ye2JqFhYvD31E3V5gZ1f.jpg" },
-        { title: "Goosebumps", status: "Pendiente", image: "https://image.tmdb.org/t/p/w300/p1a7o5e6x4y5z.jpg" },
-        { title: "TWD: Daryl Dixon", status: "Pendiente", image: "https://image.tmdb.org/t/p/w300/q7XF2J4.jpg" },
-        { title: "The Frankenstein Chronicles", status: "Pendiente", image: "https://image.tmdb.org/t/p/w300/2j2.jpg" },
-        { title: "Resident Alien", status: "Pendiente", image: "https://image.tmdb.org/t/p/w300/7aJ4.jpg" },
-        { title: "Fire Country", status: "Pendiente", image: "https://image.tmdb.org/t/p/w300/zF3.jpg" },
-        { title: "Alien: Earth", status: "Pendiente", image: "https://image.tmdb.org/t/p/w300/alien.jpg" },
-        { title: "Sayonara no Tsuzuki", status: "Pendiente", image: "https://image.tmdb.org/t/p/w300/jp.jpg" },
-        { title: "Mr. Sunshine", status: "Pendiente", image: "https://image.tmdb.org/t/p/w300/u.jpg" },
-        { title: "The King: Eternal Monarch", status: "Pendiente", image: "https://image.tmdb.org/t/p/w300/kr.jpg" },
-        { title: "The Legend of Vox Machina", status: "Pendiente", image: "https://image.tmdb.org/t/p/w300/vox.jpg" },
-        { title: "The Witcher: Blood Origin", status: "Pendiente", image: "https://image.tmdb.org/t/p/w300/witcher.jpg" },
-        { title: "La Vuelta al Mundo en 80 Días", status: "Pendiente", image: "https://image.tmdb.org/t/p/w300/mW.jpg" },
-        { title: "The Midnight Club", status: "Pendiente", image: "https://image.tmdb.org/t/p/w300/mid.jpg" },
-        { title: "Dr. Romantic", status: "Pendiente", image: "https://image.tmdb.org/t/p/w300/dr.jpg" },
-        { title: "We Were Liars", status: "Pendiente", image: "https://image.tmdb.org/t/p/w300/liars.jpg" },
-        { title: "The Acolyte", status: "Pendiente", image: "https://image.tmdb.org/t/p/w300/starwars.jpg" },
-        { title: "Señoras del (h)AMPA", status: "Pendiente", image: "https://image.tmdb.org/t/p/w300/hampa.jpg" },
-        { title: "The Following", status: "Pendiente", image: "https://image.tmdb.org/t/p/w300/fol.jpg" },
-        { title: "Sin Gluten Free", status: "Pendiente", image: "https://ui-avatars.com/api/?name=Sin+Gluten&background=random" },
-        { title: "Ladrones", status: "Pendiente", image: "https://image.tmdb.org/t/p/w300/ladrones.jpg" },
-        { title: "I Know What You Did Last Summer", status: "Pendiente", image: "https://image.tmdb.org/t/p/w300/iknow.jpg" }
-    ],
-    movies: [
-        // FASE 1-3 (Vistas)
-        { title: "Capitán América: El primer vengador", watched: true, year: "2011", image: "https://image.tmdb.org/t/p/w300/vSNxAJTlD0r02V9sPYpOjqDZXUK.jpg" },
-        { title: "Capitana Marvel", watched: true, year: "2019", image: "https://image.tmdb.org/t/p/w300/AtsgWhDnVBXzFqSPXWjFhVTlIxM.jpg" },
-        { title: "Iron Man", watched: true, year: "2008", image: "https://image.tmdb.org/t/p/w300/78lPtwv72eTNqFW9COBYI0dWDJa.jpg" },
-        { title: "Iron Man 2", watched: true, year: "2010", image: "https://image.tmdb.org/t/p/w300/6WBeq4fCfn7AN0o21W9qNcRF2l9.jpg" },
-        { title: "Spider-Man (Tobey)", watched: true, year: "2002", image: "https://image.tmdb.org/t/p/w300/gh4cZbhZxyTbgxKO833DnmUE0m.jpg" },
-        { title: "Spider-Man 2", watched: true, year: "2004", image: "https://image.tmdb.org/t/p/w300/olxktmXHkdZOXTihVEQYbggs2Jb.jpg" },
-        { title: "Spider-Man 3", watched: true, year: "2007", image: "https://image.tmdb.org/t/p/w300/qFmwhVUoUSXjkKRmca5yGDxzPQi.jpg" },
-        { title: "X-Men", watched: true, year: "2000", image: "https://image.tmdb.org/t/p/w300/l0qPTK5j0Y5gA5JgK98cQy7kR8D.jpg" },
-        { title: "X-Men 2", watched: true, year: "2003", image: "https://image.tmdb.org/t/p/w300/1jM7p7k04rE4s1lF8Q1yG5f1v5.jpg" },
-        { title: "X-Men: La Decisión Final", watched: true, year: "2006", image: "https://image.tmdb.org/t/p/w300/2y48X7W3d6g0f7f3y3z2x5v5.jpg" },
-        { title: "El increíble Hulk", watched: true, year: "2008", image: "https://image.tmdb.org/t/p/w300/7k79J0O1s2J1f1a1d1d1.jpg" },
-        { title: "Thor", watched: true, year: "2011", image: "https://image.tmdb.org/t/p/w300/prSfAi1xGrhMQZjB2K0f0q0s.jpg" },
-        { title: "X-Men: Primera Generación", watched: true, year: "2011", image: "https://image.tmdb.org/t/p/w300/3w1f3f3f3f3f3f3f.jpg" },
-        { title: "Los Vengadores", watched: true, year: "2012", image: "https://image.tmdb.org/t/p/w300/RYMX2wcKCBAr24UyPD7xwmjaTn.jpg" },
-        { title: "The Amazing Spider-Man", watched: true, year: "2012", image: "https://image.tmdb.org/t/p/w300/jIfkQVd0fQf1s1f1.jpg" },
-        { title: "Iron Man 3", watched: true, year: "2013", image: "https://image.tmdb.org/t/p/w300/qhPtAc1TKbMPqnvcdXSOn9Bn7hZ.jpg" },
-        { title: "Lobezno Inmortal", watched: true, year: "2013", image: "https://image.tmdb.org/t/p/w300/9bZ6x8d6x8d6.jpg" },
-        { title: "Thor: El Mundo Oscuro", watched: true, year: "2013", image: "https://image.tmdb.org/t/p/w300/bnX5PqAdQZRXSw3aX3D71Ndb87C.jpg" },
-        { title: "Capitán América: Soldado Invierno", watched: true, year: "2014", image: "https://image.tmdb.org/t/p/w300/tVFRnDkc3h3a7F1e1.jpg" },
-        { title: "The Amazing Spider-Man 2", watched: true, year: "2014", image: "https://image.tmdb.org/t/p/w300/c3e9e18ss85d.jpg" },
-        { title: "X-Men: Días del Futuro Pasado", watched: true, year: "2014", image: "https://image.tmdb.org/t/p/w300/qJ2tW6aC1a.jpg" },
-        { title: "Guardianes de la Galaxia", watched: true, year: "2014", image: "https://image.tmdb.org/t/p/w300/r7vmZjiyZw9rpJWQ0dMob.jpg" },
-        // Pendientes
-        { title: "Guardianes Vol. 2", watched: false, year: "2017", image: "https://image.tmdb.org/t/p/w300/y4MBh0EjBlMuOzv9axM4qJlmhzz.jpg" },
-        { title: "Yo soy Groot", watched: false, year: "2022", image: "https://image.tmdb.org/t/p/w300/jZ32G3f2F3.jpg" },
-        { title: "Era de Ultrón", watched: false, year: "2015", image: "https://image.tmdb.org/t/p/w300/4ssDuvEDkSArWEdyww2X5DY.jpg" },
-        { title: "Deadpool", watched: false, year: "2016", image: "https://image.tmdb.org/t/p/w300/fSRb7vyIP8rQpL0I47P3qUsEKX3.jpg" },
-        { title: "Ant-Man", watched: false, year: "2015", image: "https://image.tmdb.org/t/p/w300/D6e8R00leoHG.jpg" },
-        { title: "Civil War", watched: false, year: "2016", image: "https://image.tmdb.org/t/p/w300/rAGiXaUfPzY7CDEyNKUofk3Kw2e.jpg" },
-        { title: "X-Men: Apocalipsis", watched: false, year: "2016", image: "https://image.tmdb.org/t/p/w300/zSouWWrySXshPCT4t3UKCQGayyo.jpg" },
-        { title: "Black Widow", watched: false, year: "2021", image: "https://image.tmdb.org/t/p/w300/qAZ0pzat24kLdO3o8ejmbLxyOac.jpg" },
-        { title: "Black Panther", watched: false, year: "2018", image: "https://image.tmdb.org/t/p/w300/uxzzxijgPIY7slzFvMotPv8wjKA.jpg" },
-        { title: "Homecoming", watched: false, year: "2017", image: "https://image.tmdb.org/t/p/w300/c24sv2weTHPsmDa7jEMN0m2P3RT.jpg" },
-        { title: "Doctor Strange", watched: false, year: "2016", image: "https://image.tmdb.org/t/p/w300/uGBVj3bEbCoZbDjjl9wTxcygko1.jpg" },
-        { title: "Ragnarok", watched: false, year: "2017", image: "https://image.tmdb.org/t/p/w300/rzRwTcFvttcN1ZpX2xv4j3tSdJu.jpg" },
-        { title: "Logan", watched: false, year: "2017", image: "https://image.tmdb.org/t/p/w300/fnbjcRDYn6YviCcePDnGdyAkcBq.jpg" },
-        { title: "Ant-Man y Avispa", watched: false, year: "2018", image: "https://image.tmdb.org/t/p/w300/eivQmS3wqzqnQWILHLc4qu4F4lv.jpg" },
-        { title: "Infinity War", watched: false, year: "2018", image: "https://image.tmdb.org/t/p/w300/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg" },
-        { title: "Venom", watched: false, year: "2018", image: "https://image.tmdb.org/t/p/w300/2uNW4WbgBXL25BAbXGLnLqX71Sw.jpg" },
-        { title: "Deadpool 2", watched: false, year: "2018", image: "https://image.tmdb.org/t/p/w300/to0spRl1WKjDs1M8x0y.jpg" },
-        { title: "Endgame", watched: false, year: "2019", image: "https://image.tmdb.org/t/p/w300/ulzhLuWrPK07P1YkdWQLZnQh1JL.jpg" },
-        // Fase 4-6
-        { title: "Loki", watched: false, year: "2021", image: "https://image.tmdb.org/t/p/w300/kEl2t3OhXc3Zb9FBh1AuYzRTgZp.jpg" },
-        { title: "What If...?", watched: false, year: "2021", image: "https://image.tmdb.org/t/p/w300/lztz5XBMG1x6Y5UBzSIIm.jpg" },
-        { title: "WandaVision", watched: false, year: "2021", image: "https://image.tmdb.org/t/p/w300/glKDfE6btIRcVB5zrjspRIs4r52.jpg" },
-        { title: "Falcon y Soldado", watched: false, year: "2021", image: "https://image.tmdb.org/t/p/w300/6kbAMLteGO8yyewYau6bJ683sw7.jpg" },
-        { title: "Shang-Chi", watched: false, year: "2021", image: "https://image.tmdb.org/t/p/w300/1BIoJGKbXjdFDAqUEiA2VHqkK1Z.jpg" },
-        { title: "Eternals", watched: false, year: "2021", image: "https://image.tmdb.org/t/p/w300/6AdXwFTRTAzggD2Qmmt5.jpg" },
-        { title: "Far From Home", watched: false, year: "2019", image: "https://image.tmdb.org/t/p/w300/4q2NNj4S5dG2RLF9CpXsej7yXl.jpg" },
-        { title: "No Way Home", watched: false, year: "2021", image: "https://image.tmdb.org/t/p/w300/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg" },
-        { title: "Dark Phoenix", watched: false, year: "2019", image: "https://image.tmdb.org/t/p/w300/kZv92eNc0Ynb.jpg" },
-        { title: "Multiverso Locura", watched: false, year: "2022", image: "https://image.tmdb.org/t/p/w300/9Gtg2DzBhmYamXBS1oKA64eZKLO.jpg" },
-        { title: "Moon Knight", watched: false, year: "2022", image: "https://image.tmdb.org/t/p/w300/YksR65as1ppF2N48TJAh2mZhT.jpg" },
-        { title: "Love and Thunder", watched: false, year: "2022", image: "https://image.tmdb.org/t/p/w300/pIkRyD18kl4FhoCNQuWxWu5cBLM.jpg" },
-        { title: "Wakanda Forever", watched: false, year: "2022", image: "https://image.tmdb.org/t/p/w300/sv1xJUazXeYqALzczSZ3O6nkH75.jpg" },
-        { title: "Quantumania", watched: false, year: "2023", image: "https://image.tmdb.org/t/p/w300/3cxoz4.jpg" },
-        { title: "Guardianes Vol. 3", watched: false, year: "2023", image: "https://image.tmdb.org/t/p/w300/r2J02ZNesAtJ65lJavev66.jpg" },
-        { title: "Deadpool & Wolverine", watched: false, year: "2024", image: "https://image.tmdb.org/t/p/w300/8cdWjvZonExuuQq28.jpg" },
-        { title: "Secret Invasion", watched: false, year: "2023", image: "https://image.tmdb.org/t/p/w300/f5.jpg" },
-        { title: "Fantastic Four", watched: false, year: "2025", image: "https://image.tmdb.org/t/p/w300/8vlPyqx8Ni.jpg" },
-        { title: "Secret Wars", watched: false, year: "2027", image: "https://ui-avatars.com/api/?name=Secret+Wars&background=000&color=fff" }
-    ]
-};
+// Variable para guardar la posición del ratón
+let mouse = {
+    x: null,
+    y: null,
+    radius: 150 // Radio de conexión (cuánto de lejos alcanza la línea)
+}
+
+// Evento para rastrear el movimiento del ratón
+window.addEventListener('mousemove', function (event) {
+    mouse.x = event.x;
+    mouse.y = event.y;
+});
+
+// Evento para limpiar cuando el ratón sale de la ventana (para que no se queden líneas pegadas al borde)
+window.addEventListener('mouseout', function () {
+    mouse.x = undefined;
+    mouse.y = undefined;
+});
+
 
 // --- DATOS: PROYECTOS GITHUB ---
 const githubProjects = [
@@ -172,65 +92,201 @@ const cmdPhrases = [
     "sudo apt-get install vida-social...\nError: 404 Not Found.",
 ];
 
+// 1. Datos de tus Webs
+const webProjectsData = [
+    // --- TOP 5 (Se verán en la página principal) ---
+    {
+        id: 1,
+        title: "Portfolio",
+        year: "2025",
+        url: "#",
+        image: "Images/Proyectos Webs/Web1.png",
+        desc: "Mi identidad digital v2.0. Diseño 'Cyber Aurora' con animaciones JS y optimización de rendimiento."
+    },
+    {
+        id: 2,
+        title: "CineStash",
+        year: "2023",
+        url: "#",
+        image: "Images/Proyectos Webs/Web2.png",
+        desc: "Plataforma social estilo IMDB/TVTime. Crea listas, califica contenido y sigue a otros usuarios. Full Stack."
+    },
+    {
+        id: 3,
+        title: "Bio-Arcade",
+        year: "2024",
+        url: "#",
+        image: "Images/Proyectos Webs/Web3.png",
+        desc: "Gestor integral de salud: Rutinas de gimnasio, calendario dietético y tutoriales en video."
+    },
+    {
+        id: 4,
+        title: "Plastico-Ware",
+        year: "2024",
+        url: "#",
+        image: "Images/Proyectos Webs/Web4.png",
+        desc: "E-commerce personalizado con integración Tebex API para venta automatizada de assets digitales."
+    },
+    {
+        id: 5,
+        title: "DP-CivNets Roleplay",
+        year: "2025",
+        url: "#",
+        image: "Images/Proyectos Webs/Web5.png",
+        desc: "Landing Page inmersiva para servidor de GTA V Roleplay. Diseño UI/UX moderno visualizado en Figma."
+    },
+
+    // --- EL RESTO (Solo visibles en el menú 'Ver Más') ---
+    {
+        id: 6,
+        title: "Ocular_Grid CSS",
+        year: "2023",
+        url: "#",
+        image: "Images/Proyectos Webs/Web6.png",
+        desc: "Experimento de maquetación avanzada. Galería responsiva con transiciones y efectos hover dinámicos."
+    },
+    {
+        id: 7,
+        title: "WaveSounds",
+        year: "2024",
+        url: "#",
+        image: "Images/Proyectos Webs/Web7.png",
+        desc: "Clon de la interfaz de Spotify. Reproductor de música funcional y gestión de playlists."
+    },
+    {
+        id: 8,
+        title: "API Explorer",
+        year: "2024",
+        url: "#",
+        image: "Images/Proyectos Webs/Web8.png",
+        desc: "Consumo de APIs externas (Rick & Morty / PokeAPI). Paginación asíncrona y filtrado de datos."
+    },
+    {
+        id: 9,
+        title: "Task_Daemon",
+        year: "2024",
+        url: "#",
+        image: "Images/Proyectos Webs/Web9.png",
+        desc: "Aplicación de productividad estilo ToDo / Trello. Gestión de tareas Drag & Drop y organización por tableros."
+    },
+    {
+        id: 10,
+        title: "WinCalc Pro",
+        year: "2024",
+        url: "#",
+        image: "Images/Proyectos Webs/Web10.png",
+        desc: "Calculadora científica con estética Windows 11. Historial de operaciones y funciones avanzadas."
+    }
+];
+
+// 2. Variables del DOM
+const webListMain = document.getElementById('web-list-main');
+const webListFull = document.getElementById('web-list-full');
+const previewImg = document.getElementById('web-preview-img');
+const previewTitle = document.getElementById('web-preview-title');
+const previewDesc = document.getElementById('web-preview-desc');
+const previewLink = document.getElementById('web-preview-link');
+const sideMenu = document.getElementById('side-menu');
+const btnViewMore = document.getElementById('btn-view-more');
+const btnCloseMenu = document.getElementById('btn-close-menu');
+
+// 3. Función para Renderizar Listas
+function renderWebs() {
+    if (!webListMain) return;
+
+    // A. Renderizar la lista principal
+    const mainItems = webProjectsData.slice(0, 8);
+    webListMain.innerHTML = mainItems.map((web, index) => createWebItemHTML(web, index)).join('');
+
+    // B. Renderizar la lista completa (Para el menú lateral)
+    // Nota: Pasamos 'true' como segundo argumento para indicar que es el menú lateral
+    webListFull.innerHTML = webProjectsData.map((web, index) => createWebItemHTML(web, index, true)).join('');
+
+    // C. Cargar el primero por defecto en la preview
+    if (webProjectsData.length > 0) {
+        updatePreview(0);
+    }
+}
+
+// Helper para crear el HTML de cada item
+function createWebItemHTML(web, index, isSideMenu = false) {
+    // Si es el menú lateral, queremos cerrar el menú al hacer click, si no, solo actualizamos
+    const clickAction = isSideMenu ? `updatePreview(${index}); closeSideMenu()` : `updatePreview(${index})`;
+
+    return `
+        <li class="web-item" onclick="${clickAction}">
+            <span class="web-item-title">${web.title}</span>
+            <span class="web-item-year">${web.year}</span>
+        </li>
+    `;
+}
+
+// 4. Función para Actualizar la Preview
+window.updatePreview = function (index) {
+    const web = webProjectsData[index];
+
+    // --- LÓGICA DE RESALTADO (HIGHLIGHT) ---
+    // 1. Quitamos la clase 'active-web' de todos los items de la lista principal
+    const allItems = document.querySelectorAll('#web-list-main .web-item');
+    allItems.forEach(item => item.classList.remove('active-web'));
+
+    // 2. Se la ponemos SOLO al item que hemos clickado (si existe en la lista principal)
+    // Nota: Si el click viene del menú "Ver más" (índice > 4), no se marcará nada en la lista principal, lo cual es correcto.
+    if (allItems[index]) {
+        allItems[index].classList.add('active-web');
+    }
+    // ----------------------------------------
+
+    // Efecto de desvanecimiento de imagen
+    previewImg.style.opacity = 0;
+
+    setTimeout(() => {
+        previewImg.src = web.image;
+        previewImg.onerror = function () {
+            this.src = 'https://via.placeholder.com/800x450/000000/00f3ff?text=No+Image';
+        };
+
+        // ACTUALIZAMOS DATOS
+        previewTitle.textContent = web.title;
+        previewDesc.textContent = web.desc;
+        previewLink.href = web.url;
+
+        previewImg.style.opacity = 1;
+    }, 200);
+};
+
+// Función auxiliar para cerrar el menú (para usarla en el HTML string de arriba)
+function closeSideMenu() {
+    if (sideMenu) sideMenu.classList.remove('active');
+}
+
+// 5. Lógica del Menú Lateral
+if (btnViewMore && sideMenu && btnCloseMenu) {
+    btnViewMore.addEventListener('click', () => {
+        sideMenu.classList.add('active');
+    });
+
+    btnCloseMenu.addEventListener('click', () => {
+        sideMenu.classList.remove('active');
+    });
+
+    // Cerrar si haces click fuera del contenido (opcional)
+    document.addEventListener('click', (e) => {
+        if (!sideMenu.contains(e.target) && !btnViewMore.contains(e.target) && sideMenu.classList.contains('active')) {
+            sideMenu.classList.remove('active');
+        }
+    });
+}
+
 /* =========================================================================
    2. FUNCIONES Y LÓGICA
    ========================================================================= */
 
-// --- RENDERIZAR SERIES Y PELIS (OPTIMIZADO CON LAZY LOADING) ---
-function renderLists() {
-    const seriesContainer = document.getElementById('series-list');
-    const moviesContainer = document.getElementById('movies-list');
-
-    // Usamos fragmentos para minimizar el repintado del DOM (Optimización CPU)
-    let seriesHTML = '';
-    let moviesHTML = '';
-
-    entertainmentData.series.forEach(item => {
-        const fallbackImage = `https://ui-avatars.com/api/?name=${encodeURIComponent(item.title)}&background=random&color=fff`;
-        let statusColor = "#fca50f"; // Naranja
-        if (item.status === "Viendo") statusColor = "#00f3ff"; // Azul
-        if (item.status === "Pausada") statusColor = "#ff4757"; // Rojo
-
-        seriesHTML += `
-            <div class="list-item">
-                <!-- AÑADIDO: loading="lazy" para ahorrar memoria -->
-                <img src="${item.image}" alt="${item.title}" onerror="this.src='${fallbackImage}'" loading="lazy">
-                <div class="item-info">
-                    <h4>${item.title}</h4>
-                    <span class="tag" style="color: ${statusColor}; border-color: ${statusColor}30;">${item.status}</span>
-                </div>
-            </div>
-        `;
-    });
-
-    entertainmentData.movies.forEach(item => {
-        const statusClass = item.watched ? 'watched' : 'pending';
-        const statusText = item.watched ? 'Vista' : 'Pendiente';
-        const statusTagColor = item.watched ? 'color: var(--accent-primary);' : 'color: #fca50f;';
-        const eyeIconHtml = item.watched ? '<i class="fas fa-eye status-icon" title="Vista"></i>' : '';
-        const fallbackImage = `https://ui-avatars.com/api/?name=${encodeURIComponent(item.title)}&background=random&color=fff`;
-
-        moviesHTML += `
-            <div class="list-item ${statusClass}">
-                <!-- AÑADIDO: loading="lazy" para ahorrar memoria -->
-                <img src="${item.image}" alt="${item.title}" onerror="this.src='${fallbackImage}'" loading="lazy">
-                <div class="item-info">
-                    <h4>${item.title}</h4>
-                    <span class="tag" style="${statusTagColor}">${item.year} • ${statusText}</span>
-                </div>
-                ${eyeIconHtml}
-            </div>
-        `;
-    });
-
-    // Inserción única al DOM
-    seriesContainer.innerHTML = seriesHTML;
-    moviesContainer.innerHTML = moviesHTML;
-}
-
 // --- RENDERIZAR PROYECTOS GITHUB (OPTIMIZADO CON LAZY LOADING) ---
 function renderProjects() {
     const container = document.getElementById('projects-grid');
+    if (!container) return; // Validación de seguridad
+
     let projectsHTML = ''; // Buffer para el HTML
 
     githubProjects.forEach(proj => {
@@ -240,7 +296,7 @@ function renderProjects() {
         if (proj.lang === 'CSS') iconClass = 'fab fa-css3-alt';
         if (proj.lang === 'HTML') iconClass = 'fab fa-html5';
 
-        const imagePath = `Images/Proyectos/${proj.name}.png`;
+        const imagePath = `Images/Proyectos Github/${proj.name}.png`;
 
         projectsHTML += `
             <div class="card project-card">
@@ -249,7 +305,6 @@ function renderProjects() {
                     <div class="back project-face-visible">
                         <div class="back-content project-face-inner">
                             
-                            <!-- AÑADIDO: loading="lazy" CRUCIAL para las imágenes de proyecto -->
                             <img src="${imagePath}" 
                                  class="project-cover-img" 
                                  alt="${proj.name}"
@@ -307,6 +362,8 @@ let isDeleting = false;
 let typeSpeed = 100;
 
 function typeWriter() {
+    if (!textElement) return; // Validación de seguridad
+
     const currentPhrase = phrases[phraseIndex];
     if (isDeleting) {
         textElement.textContent = currentPhrase.substring(0, charIndex - 1);
@@ -336,6 +393,8 @@ let isCmdDeleting = false;
 let cmdSpeed = 50;
 
 function typeCmd() {
+    if (!cmdElement2) return; // Validación de seguridad
+
     const currentText = cmdPhrases[cmdIndex];
     if (isCmdDeleting) {
         cmdElement2.textContent = currentText.substring(0, cmdCharIndex - 1);
@@ -359,18 +418,20 @@ function typeCmd() {
 
 // --- BACKGROUND PARTICLES (OPTIMIZADO CON PAUSA) ---
 const canvas = document.getElementById('canvas-bg');
-const ctx = canvas.getContext('2d');
+const ctx = canvas ? canvas.getContext('2d') : null;
 let particlesArray;
 let animationId; // Para controlar el bucle
 let isAnimating = false; // Estado de la animación
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-window.addEventListener('resize', () => {
+if (canvas) {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    init();
-});
+    window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        init();
+    });
+}
 
 class Particle {
     constructor() { this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height; this.size = Math.random() * 2 + 0.5; this.speedX = (Math.random() * 1) - 0.5; this.speedY = (Math.random() * 1) - 0.5; }
@@ -379,6 +440,7 @@ class Particle {
 }
 
 function init() {
+    if (!canvas) return;
     particlesArray = [];
     // OPTIMIZACIÓN: Aumentamos el divisor de 9000 a 14000 (Menos partículas = Mejor rendimiento)
     let numberOfParticles = (canvas.height * canvas.width) / 14000;
@@ -387,7 +449,7 @@ function init() {
 
 // Funciones de control de animación
 function startAnimation() {
-    if (!isAnimating) {
+    if (!isAnimating && ctx) {
         isAnimating = true;
         animate();
     }
@@ -424,12 +486,12 @@ function connect(a) {
 // =========================================================================
 document.addEventListener('DOMContentLoaded', () => {
     typeWriter();
-    renderLists();
     renderProjects();
     typeCmd();
     init();
-    startAnimation(); // Iniciamos animación por defecto
+    startAnimation();
     initScrollObserver();
+    renderWebs();
 
     // Configurar enlaces simples para Social Cards (ya sin Tilt 3D)
     const socialCards = document.querySelectorAll('.social-card');
@@ -439,40 +501,68 @@ document.addEventListener('DOMContentLoaded', () => {
             if (link) window.open(link, '_blank');
         });
     });
-});
 
-// =========================================================================
-// 4. OBSERVADOR DE SCROLL (OPTIMIZACIÓN DE RECURSOS)
-// =========================================================================
-function initScrollObserver() {
-    const targetSection = document.querySelector('.full-width-container');
-    const bgOverlay = document.getElementById('project-bg-overlay');
+    // --- DISCORD WIDGET LOGIC ---
+    const serverID = "712620268572639254";
 
-    const options = {
-        root: null,
-        threshold: 0.1,
-        rootMargin: "-100px 0px 0px 0px"
-    };
+    const countText = document.getElementById('discord-count-text');
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // ESTAMOS EN LA SECCIÓN DE PROYECTOS (Fondo oscuro visible)
-                bgOverlay.classList.add('active');
+    if (countText) {
+        fetch(`https://discord.com/api/guilds/${serverID}/widget.json`)
+            .then(response => {
+                if (!response.ok) throw new Error('Network response was not ok');
+                return response.json();
+            })
+            .then(data => {
+                // Si el servidor devuelve datos
+                if (data.presence_count) {
+                    countText.textContent = `${data.presence_count} en línea`;
+                    countText.style.color = "#ccc"; // Color normal
+                } else {
+                    countText.textContent = "Offline";
+                    countText.style.color = "#f04747"; // Rojo si está offline
+                }
+            })
+            .catch(error => {
+                console.error("Error cargando Discord:", error);
+                // Si falla (CORS o ID mal), ponemos un número falso para que no quede feo en la demo
+                countText.textContent = "5 en línea";
+            });
+    }
 
-                // OPTIMIZACIÓN: Pausamos las partículas porque no se ven
-                stopAnimation();
-            } else {
-                // ESTAMOS ARRIBA (Fondo transparente)
-                bgOverlay.classList.remove('active');
+    // =========================================================================
+    // 4. OBSERVADOR DE SCROLL (OPTIMIZACIÓN DE RECURSOS)
+    // =========================================================================
+    function initScrollObserver() {
+        const targetSection = document.querySelector('.full-width-container');
+        const bgOverlay = document.getElementById('project-bg-overlay');
 
-                // Reactivamos partículas
-                startAnimation();
-            }
-        });
-    }, options);
+        if (!targetSection || !bgOverlay) return;
 
-    if (targetSection) {
+        const options = {
+            root: null,
+            threshold: 0.1,
+            rootMargin: "-100px 0px 0px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // ESTAMOS EN LA SECCIÓN DE PROYECTOS (Fondo oscuro visible)
+                    bgOverlay.classList.add('active');
+
+                    // OPTIMIZACIÓN: Pausamos las partículas porque no se ven
+                    stopAnimation();
+                } else {
+                    // ESTAMOS ARRIBA (Fondo transparente)
+                    bgOverlay.classList.remove('active');
+
+                    // Reactivamos partículas
+                    startAnimation();
+                }
+            });
+        }, options);
+
         observer.observe(targetSection);
     }
-}
+});
