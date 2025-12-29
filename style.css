@@ -1124,7 +1124,6 @@ footer {
     flex: 1.5;
     min-width: 300px;
     position: sticky;
-    top: 100px;
     padding: 5px;
 }
 
