@@ -40,7 +40,7 @@ const githubProjects = [
     { name: "DP-Notify", lang: "CSS", color: "#563d7c", desc: "[FiveM] Sistema de notificaciones moderno y ligero, sin dependencias complejas." },
     { name: "DP-Animations", lang: "Lua", color: "#0000ff", desc: "[FiveM] Menú avanzado de animaciones para acceder a gran variedad de emotes." },
     { name: "DP-AntiBackdoor", lang: "Lua", color: "#0000ff", desc: "[FiveM] Protección esencial para servidores FiveM contra backdoors comunes." },
-    { name: "DP-Quests", lang: "JavaScript", color: "#f1e05a", desc: "[FiveM] Sistema de misiones interactivas para dar vida al servidor." }
+    // { name: "DP-Quests", lang: "JavaScript", color: "#f1e05a", desc: "[FiveM] Sistema de misiones interactivas para dar vida al servidor." }
 ];
 
 // --- DATOS: FRASES TROLL CMD ---
