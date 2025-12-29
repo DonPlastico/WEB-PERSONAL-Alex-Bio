@@ -113,19 +113,19 @@ const webProjectsData = [
     },
     {
         id: 3,
-        title: "Bio-Arcade",
-        year: "2024",
+        title: "DP-Store",
+        year: "2025",
         url: "#",
         image: "Images/Proyectos Webs/Web3.png",
-        desc: "Gestor integral de salud: Rutinas de gimnasio, calendario dietético y tutoriales en video."
+        desc: "E-commerce personalizado con integración Tebex API para venta automatizada de assets digitales."
     },
     {
         id: 4,
-        title: "Plastico-Ware",
+        title: "Bio-Arcade",
         year: "2024",
         url: "#",
         image: "Images/Proyectos Webs/Web4.png",
-        desc: "E-commerce personalizado con integración Tebex API para venta automatizada de assets digitales."
+        desc: "Gestor integral de salud: Rutinas de gimnasio, calendario dietético y tutoriales en video."
     },
     {
         id: 5,
@@ -227,7 +227,7 @@ window.updatePreview = function (index) {
 
     // --- LÓGICA DE RESALTADO (HIGHLIGHT) ---
     // 1. Quitamos la clase 'active-web' de todos los items de la lista principal
-    const allItems = document.querySelectorAll('#web-list-main .web-item');
+    const allItems = document.querySelectorAll('.web-item');
     allItems.forEach(item => item.classList.remove('active-web'));
 
     // 2. Se la ponemos SOLO al item que hemos clickado (si existe en la lista principal)
