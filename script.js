@@ -97,8 +97,8 @@ const webProjectsData = [
     // --- TOP 5 (Se verán en la página principal) ---
     {
         id: 1,
-        title: "Portafolio - ESTA WEB",
-        year: "2025",
+        title: "Portafolio",
+        year: "ESTA WEB - 2025",
         url: "#",
         image: "Images/Proyectos Webs/Web1.png",
         desc: "Mi identidad digital v2.0. Diseño 'Cyber Aurora' con animaciones JS y optimización de rendimiento."
@@ -121,16 +121,16 @@ const webProjectsData = [
     },
     {
         id: 4,
-        title: "Bio-Arcade - Terminada",
-        year: "2024",
+        title: "Bio-Arcade",
+        year: "TERMINADA - 2024",
         url: "#",
         image: "Images/Proyectos Webs/Web4.png",
         desc: "Gestor integral de salud: Rutinas de gimnasio, calendario dietético y tutoriales en video."
     },
     {
         id: 5,
-        title: "DP-CivNets Roleplay - Próximamente",
-        year: "2025",
+        title: "DP-CivNets Roleplay",
+        year: "Próximamente - 2025",
         url: "#",
         image: "Images/Proyectos Webs/Web5.png",
         desc: "Landing Page inmersiva para servidor de GTA V Roleplay. Diseño UI/UX moderno visualizado en Figma."
@@ -139,8 +139,8 @@ const webProjectsData = [
     // --- EL RESTO (Solo visibles en el menú 'Ver Más') ---
     {
         id: 6,
-        title: "Ocular_Grid CSS - Próximamente",
-        year: "2023",
+        title: "Ocular_Grid CSS",
+        year: "Próximamente - 2023",
         url: "#",
         image: "Images/Proyectos Webs/Web6.png",
         desc: "Experimento de maquetación avanzada. Galería responsiva con transiciones y efectos hover dinámicos."
@@ -148,7 +148,7 @@ const webProjectsData = [
     {
         id: 7,
         title: "WaveSounds - Próximamente",
-        year: "2024",
+        year: "Próximamente - 2025",
         url: "#",
         image: "Images/Proyectos Webs/Web7.png",
         desc: "Clon de la interfaz de Spotify. Reproductor de música funcional y gestión de playlists."
@@ -156,7 +156,7 @@ const webProjectsData = [
     {
         id: 8,
         title: "API Explorer - Próximamente",
-        year: "2024",
+        year: "Próximamente - 2025",
         url: "#",
         image: "Images/Proyectos Webs/Web8.png",
         desc: "Consumo de APIs externas (Rick & Morty / PokeAPI). Paginación asíncrona y filtrado de datos."
@@ -164,7 +164,7 @@ const webProjectsData = [
     {
         id: 9,
         title: "Task_Daemon - Próximamente",
-        year: "2024",
+        year: "Próximamente - 2025",
         url: "#",
         image: "Images/Proyectos Webs/Web9.png",
         desc: "Aplicación de productividad estilo ToDo / Trello. Gestión de tareas Drag & Drop y organización por tableros."
@@ -172,7 +172,7 @@ const webProjectsData = [
     {
         id: 10,
         title: "WinCalc Pro - Próximamente",
-        year: "2024",
+        year: "Próximamente - 2025",
         url: "#",
         image: "Images/Proyectos Webs/Web10.png",
         desc: "Calculadora científica con estética Windows 11. Historial de operaciones y funciones avanzadas."
