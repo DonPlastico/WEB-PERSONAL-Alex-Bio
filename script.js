@@ -115,7 +115,7 @@ const webProjectsData = [
         id: 3,
         title: "DP-Store",
         year: "2025",
-        url: "#",
+        url: "https://donplastico.github.io/DP-STORE/",
         image: "Images/Proyectos Webs/Web3.png",
         desc: "E-commerce personalizado con integración Tebex API para venta automatizada de assets digitales."
     },
