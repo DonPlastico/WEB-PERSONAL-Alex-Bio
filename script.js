@@ -227,14 +227,20 @@ window.updatePreview = function (index) {
 
     // --- LÓGICA DE RESALTADO (HIGHLIGHT) ---
     // 1. Quitamos la clase 'active-web' de todos los items de la lista principal
-    const allItems = document.querySelectorAll('.web-item');
-    allItems.forEach(item => item.classList.remove('active-web'));
+    const allItemsMain = document.querySelectorAll('#web-list-main .web-item');
+    allItemsMain.forEach(item => item.classList.remove('active-web'));
+
+    const allItemsSecundary = document.querySelectorAll('#web-list-full .web-item');
+    allItemsSecundary.forEach(item => item.classList.remove('active-web'));
 
     // 2. Se la ponemos SOLO al item que hemos clickado (si existe en la lista principal)
     // Nota: Si el click viene del menú "Ver más" (índice > 4), no se marcará nada en la lista principal, lo cual es correcto.
-    if (allItems[index]) {
-        allItems[index].classList.add('active-web');
+    if (allItemsMain[index]) {
+        allItemsMain[index].classList.add('active-web');
     }
+
+
+    allItemsSecundary[index].classList.add('active-web');
     // ----------------------------------------
 
     // Efecto de desvanecimiento de imagen
