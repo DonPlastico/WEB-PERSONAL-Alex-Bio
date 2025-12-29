@@ -97,7 +97,7 @@ const webProjectsData = [
     // --- TOP 5 (Se verán en la página principal) ---
     {
         id: 1,
-        title: "Portfolio",
+        title: "Portafolio - ESTA WEB",
         year: "2025",
         url: "#",
         image: "Images/Proyectos Webs/Web1.png",
@@ -121,7 +121,7 @@ const webProjectsData = [
     },
     {
         id: 4,
-        title: "Bio-Arcade",
+        title: "Bio-Arcade - Terminada",
         year: "2024",
         url: "#",
         image: "Images/Proyectos Webs/Web4.png",
@@ -129,7 +129,7 @@ const webProjectsData = [
     },
     {
         id: 5,
-        title: "DP-CivNets Roleplay",
+        title: "DP-CivNets Roleplay - Próximamente",
         year: "2025",
         url: "#",
         image: "Images/Proyectos Webs/Web5.png",
@@ -139,7 +139,7 @@ const webProjectsData = [
     // --- EL RESTO (Solo visibles en el menú 'Ver Más') ---
     {
         id: 6,
-        title: "Ocular_Grid CSS",
+        title: "Ocular_Grid CSS - Próximamente",
         year: "2023",
         url: "#",
         image: "Images/Proyectos Webs/Web6.png",
@@ -147,7 +147,7 @@ const webProjectsData = [
     },
     {
         id: 7,
-        title: "WaveSounds",
+        title: "WaveSounds - Próximamente",
         year: "2024",
         url: "#",
         image: "Images/Proyectos Webs/Web7.png",
@@ -155,7 +155,7 @@ const webProjectsData = [
     },
     {
         id: 8,
-        title: "API Explorer",
+        title: "API Explorer - Próximamente",
         year: "2024",
         url: "#",
         image: "Images/Proyectos Webs/Web8.png",
@@ -163,7 +163,7 @@ const webProjectsData = [
     },
     {
         id: 9,
-        title: "Task_Daemon",
+        title: "Task_Daemon - Próximamente",
         year: "2024",
         url: "#",
         image: "Images/Proyectos Webs/Web9.png",
@@ -171,7 +171,7 @@ const webProjectsData = [
     },
     {
         id: 10,
-        title: "WinCalc Pro",
+        title: "WinCalc Pro - Próximamente",
         year: "2024",
         url: "#",
         image: "Images/Proyectos Webs/Web10.png",
