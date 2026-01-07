@@ -107,7 +107,7 @@ const webProjectsData = [
         id: 2,
         title: "CineStash",
         year: "2023",
-        url: "#",
+        url: "file:///C:/laragon/www/Pelis_y_Series_Frontend/index.html",
         image: "Images/Proyectos Webs/Web2.png",
         desc: "Plataforma social estilo IMDB/TVTime. Crea listas, califica contenido y sigue a otros usuarios. Full Stack."
     },
@@ -115,7 +115,7 @@ const webProjectsData = [
         id: 3,
         title: "DP-Store",
         year: "2025",
-        url: "https://donplastico.github.io/DP-STORE/",
+        url: "https://donplastico.github.io/WEB-DP-Scripts/",
         image: "Images/Proyectos Webs/Web3.png",
         desc: "E-commerce personalizado con integración Tebex API para venta automatizada de assets digitales."
     },
